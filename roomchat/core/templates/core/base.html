@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}{% endblock %} Blood Portal </title>
+
+
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class=" bg-gray-200">
+        <nav class="flex items-center justify-between px-4 py-6 bg-red-800">
+            <div>
+                <a href="/" class="text-xl text-white">Blood Portal</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                {% if request.user.is_authenticated %}
+                    <a href="/rooms/" class="text-white hover:text-gray-200">Donate</a>
+                
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="px-5 py-3 rounded-xl text-white bg-red-600 hover:bg-red-700 duration-300">Log out</button>
+                    </form>
+                {% else %}
+                    <a href="/login/" class="text-white hover:text-gray-200 duration-300">Log in</a>
+
+                    <a href="/signup/" class="px-5 py-3 rounded-xl text-white bg-red-600 hover:bg-red-700 duration-300">Sign up</a>
+                {% endif %}
+            </div>
+            </nav>
+            {% block content %}
+            {% endblock %}
+    </body>
+</html>
