@@ -1,16 +1,27 @@
+<!-- prettier-ignore -->
+
 {% extends 'core/base.html' %}
 
 {% block title %}Home |{% endblock %}
 
 {% block content %}
 {% if request.user.is_authenticated %}
-<div class="p-10 lg:p-20 text-center">
-    <h1 class="text-3xl lg:text-6xl text-red-800">Hallo {{user.first_name}}</h1>
-</div>
-{% else %}
-    <div class="p-10 lg:p-20 text-center">
-        <h1 class="text-3xl lg:text-6xl text-red-800">Blood Portal</h1>
+<div>
+  <div class="p-10 lg:p-20 h-screen flex items-center justify-center">
+    <div class="grid text-center">
+      <h1 class="text-3xl lg:text-6xl text-red-800 font-bold">
+        Salut {{user.first_name}}
+      </h1>
+      <h2 class="text-red-800 text-2xl lg:text-3xl pt-5 font-bold">
+        Avem 3 spitale care au nevoie de tine!
+      </h2>
     </div>
-{% endif %}
+  </div>
 
-{% endblock %}
+  {% else %} {% load static %}
+  <div class="p-10 lg:p-20 h-screen flex items-center justify-center">
+    <h1 class="text-3xl lg:text-6xl text-red-800 font-bold">Blood Portal</h1>
+  </div>
+
+  {% endif %} {% endblock %}
+</div>

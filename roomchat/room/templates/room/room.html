@@ -1,15 +1,115 @@
-{% extends 'core/base.html' %}
-
-{% block title %}{{ room.slug }} |{% endblock %}
-
+{% extends 'core/base.html' %} {% block title %}{{ room.slug }} |{% endblock %}
 {% block content %}
 
-<div class="p-10 lg:p-20 text-center">
-    <h1 class="text-3xl lg:text-6xl text-red-800">{{ room.name }}</h1>
+<div class="p-10 lg:pt-15 pb-20 text-center">
+  <h1 class="text-3xl lg:text-6xl text-red-800 font-bold">{{ room.name }}</h1>
 </div>
-<div class="flex justify-center">
-    <iframe src="{{ room.maps_link }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+<div class="md:flex md:justify-between md:mx-24 mx-4">
+  <div class="mb-10 md:mb-0">
+    <h1
+      class="flex justify-center text-3xl lg:text-4xl text-red-800 mb-10 font-semibold"
+    >
+      Stoc Sânge
+    </h1>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div class="grid place-items-center bg-red-700 p-2 md:p-5 rounded-xl">
+        <div class="grid place-items-center text-white">
+          <p class="text-xl md:text-3xl font-semibold pb-1">O(I)</p>
+          <p class="text-xl md:text-3xl font-semibold">Pozitiv (+)</p>
+        </div>
+        <p class="text-xl md:text-3xl font-semibold text-white">
+          {{ room.Opositive }}
+        </p>
+      </div>
+      <div class="grid place-items-center bg-red-700 p-2 md:p-5 rounded-xl">
+        <div class="grid place-items-center text-white">
+          <p class="text-xl md:text-3xl font-semibold pb-1">O(I)</p>
+          <p class="text-xl md:text-3xl font-semibold">Negativ (-)</p>
+        </div>
+        <p class="text-xl md:text-3xl font-semibold text-white">
+          {{ room.Onegative }}
+        </p>
+      </div>
+      <div class="grid place-items-center bg-red-700 p-2 md:p-5 rounded-xl">
+        <div class="grid place-items-center text-white">
+          <p class="text-xl md:text-3xl font-semibold pb-1">A(II)</p>
+          <p class="text-xl md:text-3xl font-semibold">Pozitiv (+)</p>
+        </div>
+        <p class="text-xl md:text-3xl font-semibold text-white">
+          {{ room.Apositive }}
+        </p>
+      </div>
+      <div class="grid place-items-center bg-red-700 p-2 md:p-5 rounded-xl">
+        <div class="grid place-items-center text-white">
+          <p class="text-xl md:text-3xl font-semibold pb-1">A(II)</p>
+          <p class="text-xl md:text-3xl font-semibold">Negativ (-)</p>
+        </div>
+        <p class="text-xl md:text-3xl font-semibold text-white">
+          {{ room.Anegative }}
+        </p>
+      </div>
+      <div class="grid place-items-center bg-red-700 p-2 md:p-5 rounded-xl">
+        <div class="grid place-items-center text-white">
+          <p class="text-xl md:text-3xl font-semibold pb-1">B(III)</p>
+          <p class="text-xl md:text-3xl font-semibold">Pozitiv (+)</p>
+        </div>
+        <p class="text-xl md:text-3xl font-semibold text-white">
+          {{ room.Bpositive }}
+        </p>
+      </div>
+      <div class="grid place-items-center bg-red-700 p-2 md:p-5 rounded-xl">
+        <div class="grid place-items-center text-white">
+          <p class="text-xl md:text-3xl font-semibold pb-1">B(III)</p>
+          <p class="text-xl md:text-3xl font-semibold">Negativ (-)</p>
+        </div>
+        <p class="text-xl md:text-3xl font-semibold text-white">
+          {{ room.Bnegative }}
+        </p>
+      </div>
+      <div class="grid place-items-center bg-red-700 p-2 md:p-5 rounded-xl">
+        <div class="grid place-items-center text-white">
+          <p class="text-xl md:text-3xl font-semibold pb-1">AB(IV)</p>
+          <p class="text-xl md:text-3xl font-semibold">Pozitiv (+)</p>
+        </div>
+        <p class="text-xl md:text-3xl font-semibold text-white">
+          {{ room.ABpositive }}
+        </p>
+      </div>
+      <div class="grid place-items-center bg-red-700 p-2 md:p-5 rounded-xl">
+        <div class="grid place-items-center text-white">
+          <p class="text-xl md:text-3xl font-semibold pb-1">AB(IV)</p>
+          <p class="text-xl md:text-3xl font-semibold">Negativ (-)</p>
+        </div>
+        <p class="text-xl md:text-3xl font-semibold text-white">
+          {{ room.ABnegative }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <iframe
+      src="{{ room.maps_link }}"
+      width="800"
+      class="hidden md:block rounded-lg border"
+      height="600"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+  <div class="grid place-items-center md:hidden border mb-5">
+    <iframe
+      src="{{ room.maps_link }}"
+      width="300"
+      height="400"
+      class="rounded-lg"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
 </div>
 
 {% endblock %}
